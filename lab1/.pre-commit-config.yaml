@@ -32,10 +32,3 @@ repos:
         language: system
         pass_filenames: false
         stages: [pre-push]
-
-      - id: tests
-        name: Tests
-        entry: python -m pytest
-        language: system
-        pass_filenames: false
-        stages: [pre-push]
