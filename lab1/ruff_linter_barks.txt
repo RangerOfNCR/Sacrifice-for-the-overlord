@@ -1,0 +1,606 @@
+I001 [*] Import block is un-sorted or un-formatted
+ --> task1\coder.py:1:1
+  |
+1 | / import random
+2 | | import os
+3 | | from typing import Dict, List
+  | |_____________________________^
+help: Organize imports
+  |
+1 + import os
+2 | import random
+  - import os
+3 | from typing import Dict, List
+  |
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+ --> task1\coder.py:3:1
+  |
+1 | import random
+2 | import os
+3 | from typing import Dict, List
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+UP035 `typing.List` is deprecated, use `list` instead
+ --> task1\coder.py:3:1
+  |
+1 | import random
+2 | import os
+3 | from typing import Dict, List
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+UP006 [*] Use `list` instead of `List` for type annotation
+ --> task1\coder.py:6:45
+  |
+6 | def read_dictionary_file(dict_path: str) -> List[str]:
+  |                                             ^^^^
+7 |     """Функция для чтения строк словаря из файла
+8 |     на вход принимает путь к файлу словаря
+  |
+help: Replace with `list`
+  |
+5 |
+  - def read_dictionary_file(dict_path: str) -> List[str]:
+6 + def read_dictionary_file(dict_path: str) -> list[str]:
+7 |     """Функция для чтения строк словаря из файла
+  |
+
+UP015 [*] Unnecessary mode argument
+  --> task1\coder.py:11:26
+   |
+ 9 |     возвращает список строк файла
+10 |     """
+11 |     with open(dict_path, 'r', encoding='utf-8') as dict_file:
+   |                          ^^^
+12 |         return dict_file.readlines()
+   |
+help: Remove mode argument
+   |
+10 |     """
+   -     with open(dict_path, 'r', encoding='utf-8') as dict_file:
+11 +     with open(dict_path, encoding='utf-8') as dict_file:
+12 |         return dict_file.readlines()
+   |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+  --> task1\coder.py:15:36
+   |
+15 | def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+   |                                    ^^^^
+16 |     """Функция для парсинга словаря шифрования из списка строк
+17 |     на вход принимает строки файла словаря
+   |
+help: Replace with `list`
+   |
+14 |
+   - def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+15 + def parse_cipher_dictionary(lines: list[str]) -> Dict[str, List[str]]:
+16 |     """Функция для парсинга словаря шифрования из списка строк
+   |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> task1\coder.py:15:50
+   |
+15 | def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+   |                                                  ^^^^
+16 |     """Функция для парсинга словаря шифрования из списка строк
+17 |     на вход принимает строки файла словаря
+   |
+help: Replace with `dict`
+   |
+14 |
+   - def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+15 + def parse_cipher_dictionary(lines: List[str]) -> dict[str, List[str]]:
+16 |     """Функция для парсинга словаря шифрования из списка строк
+   |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+  --> task1\coder.py:15:60
+   |
+15 | def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+   |                                                            ^^^^
+16 |     """Функция для парсинга словаря шифрования из списка строк
+17 |     на вход принимает строки файла словаря
+   |
+help: Replace with `list`
+   |
+14 |
+   - def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+15 + def parse_cipher_dictionary(lines: List[str]) -> Dict[str, list[str]]:
+16 |     """Функция для парсинга словаря шифрования из списка строк
+   |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> task1\coder.py:37:47
+   |
+37 | def load_cipher_dictionary(dict_path: str) -> Dict[str, List[str]]:
+   |                                               ^^^^
+38 |     """Функция для загрузки словаря для шифрования из файла"""
+39 |     lines = read_dictionary_file(dict_path)
+   |
+help: Replace with `dict`
+   |
+36 |
+   - def load_cipher_dictionary(dict_path: str) -> Dict[str, List[str]]:
+37 + def load_cipher_dictionary(dict_path: str) -> dict[str, List[str]]:
+38 |     """Функция для загрузки словаря для шифрования из файла"""
+   |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+  --> task1\coder.py:37:57
+   |
+37 | def load_cipher_dictionary(dict_path: str) -> Dict[str, List[str]]:
+   |                                                         ^^^^
+38 |     """Функция для загрузки словаря для шифрования из файла"""
+39 |     lines = read_dictionary_file(dict_path)
+   |
+help: Replace with `list`
+   |
+36 |
+   - def load_cipher_dictionary(dict_path: str) -> Dict[str, List[str]]:
+37 + def load_cipher_dictionary(dict_path: str) -> Dict[str, list[str]]:
+38 |     """Функция для загрузки словаря для шифрования из файла"""
+   |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+  --> task1\coder.py:51:44
+   |
+51 | def parse_replacements(right_part: str) -> List[str]:
+   |                                            ^^^^
+52 |     """Функция для парсинга списка замен из правой части строки словаря
+53 |     на вход принимает правую часть строки словаря
+   |
+help: Replace with `list`
+   |
+50 |
+   - def parse_replacements(right_part: str) -> List[str]:
+51 + def parse_replacements(right_part: str) -> list[str]:
+52 |     """Функция для парсинга списка замен из правой части строки словаря
+   |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> task1\coder.py:59:42
+   |
+59 | def encrypt_text(text: str, cipher_dict: Dict[str, List[str]]) -> str:
+   |                                          ^^^^
+60 |     """Функция для шифрования переданного текста
+61 |     на вход принимает исходный текст и словарь для шифрования
+   |
+help: Replace with `dict`
+   |
+58 |
+   - def encrypt_text(text: str, cipher_dict: Dict[str, List[str]]) -> str:
+59 + def encrypt_text(text: str, cipher_dict: dict[str, List[str]]) -> str:
+60 |     """Функция для шифрования переданного текста
+   |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+  --> task1\coder.py:59:52
+   |
+59 | def encrypt_text(text: str, cipher_dict: Dict[str, List[str]]) -> str:
+   |                                                    ^^^^
+60 |     """Функция для шифрования переданного текста
+61 |     на вход принимает исходный текст и словарь для шифрования
+   |
+help: Replace with `list`
+   |
+58 |
+   - def encrypt_text(text: str, cipher_dict: Dict[str, List[str]]) -> str:
+59 + def encrypt_text(text: str, cipher_dict: Dict[str, list[str]]) -> str:
+60 |     """Функция для шифрования переданного текста
+   |
+
+UP015 [*] Unnecessary mode argument
+  --> task1\coder.py:79:27
+   |
+77 |     на вход принимает путь к файлу с исходным текстом
+78 |     """
+79 |     with open(input_path, 'r', encoding='utf-8') as input_file:
+   |                           ^^^
+80 |         content = input_file.read()
+   |
+help: Remove mode argument
+   |
+78 |     """
+   -     with open(input_path, 'r', encoding='utf-8') as input_file:
+79 +     with open(input_path, encoding='utf-8') as input_file:
+80 |         content = input_file.read()
+   |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> task1\coder.py:93:48
+   |
+93 | def encrypt_file(input_path: str, cipher_dict: Dict[str, List[str]],
+   |                                                ^^^^
+94 |                  output_path: str = 'encrypted_text.txt') -> str:
+95 |     """Функция для шифрования текста из файла и сохранения результата
+   |
+help: Replace with `dict`
+   |
+92 |
+   - def encrypt_file(input_path: str, cipher_dict: Dict[str, List[str]],
+93 + def encrypt_file(input_path: str, cipher_dict: dict[str, List[str]],
+94 |                  output_path: str = 'encrypted_text.txt') -> str:
+   |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+  --> task1\coder.py:93:58
+   |
+93 | def encrypt_file(input_path: str, cipher_dict: Dict[str, List[str]],
+   |                                                          ^^^^
+94 |                  output_path: str = 'encrypted_text.txt') -> str:
+95 |     """Функция для шифрования текста из файла и сохранения результата
+   |
+help: Replace with `list`
+   |
+92 |
+   - def encrypt_file(input_path: str, cipher_dict: Dict[str, List[str]],
+93 + def encrypt_file(input_path: str, cipher_dict: Dict[str, list[str]],
+94 |                  output_path: str = 'encrypted_text.txt') -> str:
+   |
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+ --> task1\decoder.py:2:1
+  |
+1 | import os
+2 | from typing import Dict, List
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+UP035 `typing.List` is deprecated, use `list` instead
+ --> task1\decoder.py:2:1
+  |
+1 | import os
+2 | from typing import Dict, List
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+UP006 [*] Use `list` instead of `List` for type annotation
+ --> task1\decoder.py:5:45
+  |
+5 | def read_dictionary_file(dict_path: str) -> List[str]:
+  |                                             ^^^^
+6 |     """Чтение строк словаря из файла"""
+7 |     with open(dict_path, 'r', encoding='utf-8') as dict_file:
+  |
+help: Replace with `list`
+  |
+4 |
+  - def read_dictionary_file(dict_path: str) -> List[str]:
+5 + def read_dictionary_file(dict_path: str) -> list[str]:
+6 |     """Чтение строк словаря из файла"""
+  |
+
+UP015 [*] Unnecessary mode argument
+ --> task1\decoder.py:7:26
+  |
+5 | def read_dictionary_file(dict_path: str) -> List[str]:
+6 |     """Чтение строк словаря из файла"""
+7 |     with open(dict_path, 'r', encoding='utf-8') as dict_file:
+  |                          ^^^
+8 |         return dict_file.readlines()
+  |
+help: Remove mode argument
+  |
+6 |     """Чтение строк словаря из файла"""
+  -     with open(dict_path, 'r', encoding='utf-8') as dict_file:
+7 +     with open(dict_path, encoding='utf-8') as dict_file:
+8 |         return dict_file.readlines()
+  |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+  --> task1\decoder.py:11:36
+   |
+11 | def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+   |                                    ^^^^
+12 |     """Парсинг словаря шифрования из списка строк"""
+13 |     cipher_dict = {}
+   |
+help: Replace with `list`
+   |
+10 |
+   - def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+11 + def parse_cipher_dictionary(lines: list[str]) -> Dict[str, List[str]]:
+12 |     """Парсинг словаря шифрования из списка строк"""
+   |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> task1\decoder.py:11:50
+   |
+11 | def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+   |                                                  ^^^^
+12 |     """Парсинг словаря шифрования из списка строк"""
+13 |     cipher_dict = {}
+   |
+help: Replace with `dict`
+   |
+10 |
+   - def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+11 + def parse_cipher_dictionary(lines: List[str]) -> dict[str, List[str]]:
+12 |     """Парсинг словаря шифрования из списка строк"""
+   |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+  --> task1\decoder.py:11:60
+   |
+11 | def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+   |                                                            ^^^^
+12 |     """Парсинг словаря шифрования из списка строк"""
+13 |     cipher_dict = {}
+   |
+help: Replace with `list`
+   |
+10 |
+   - def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+11 + def parse_cipher_dictionary(lines: List[str]) -> Dict[str, list[str]]:
+12 |     """Парсинг словаря шифрования из списка строк"""
+   |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> task1\decoder.py:34:47
+   |
+34 | def load_cipher_dictionary(dict_path: str) -> Dict[str, List[str]]:
+   |                                               ^^^^
+35 |     """Загрузка словаря шифрования из файла"""
+36 |     lines = read_dictionary_file(dict_path)
+   |
+help: Replace with `dict`
+   |
+33 |
+   - def load_cipher_dictionary(dict_path: str) -> Dict[str, List[str]]:
+34 + def load_cipher_dictionary(dict_path: str) -> dict[str, List[str]]:
+35 |     """Загрузка словаря шифрования из файла"""
+   |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+  --> task1\decoder.py:34:57
+   |
+34 | def load_cipher_dictionary(dict_path: str) -> Dict[str, List[str]]:
+   |                                                         ^^^^
+35 |     """Загрузка словаря шифрования из файла"""
+36 |     lines = read_dictionary_file(dict_path)
+   |
+help: Replace with `list`
+   |
+33 |
+   - def load_cipher_dictionary(dict_path: str) -> Dict[str, List[str]]:
+34 + def load_cipher_dictionary(dict_path: str) -> Dict[str, list[str]]:
+35 |     """Загрузка словаря шифрования из файла"""
+   |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> task1\decoder.py:40:45
+   |
+40 | def create_decipher_dictionary(cipher_dict: Dict[str, List[str]]) -> Dict[str, str]:
+   |                                             ^^^^
+41 |     """Создание обратного словаря для расшифровки"""
+42 |     decipher_dict = {}
+   |
+help: Replace with `dict`
+   |
+39 |
+   - def create_decipher_dictionary(cipher_dict: Dict[str, List[str]]) -> Dict[str, str]:
+40 + def create_decipher_dictionary(cipher_dict: dict[str, List[str]]) -> Dict[str, str]:
+41 |     """Создание обратного словаря для расшифровки"""
+   |
+
+UP006 [*] Use `list` instead of `List` for type annotation
+  --> task1\decoder.py:40:55
+   |
+40 | def create_decipher_dictionary(cipher_dict: Dict[str, List[str]]) -> Dict[str, str]:
+   |                                                       ^^^^
+41 |     """Создание обратного словаря для расшифровки"""
+42 |     decipher_dict = {}
+   |
+help: Replace with `list`
+   |
+39 |
+   - def create_decipher_dictionary(cipher_dict: Dict[str, List[str]]) -> Dict[str, str]:
+40 + def create_decipher_dictionary(cipher_dict: Dict[str, list[str]]) -> Dict[str, str]:
+41 |     """Создание обратного словаря для расшифровки"""
+   |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> task1\decoder.py:40:70
+   |
+40 | def create_decipher_dictionary(cipher_dict: Dict[str, List[str]]) -> Dict[str, str]:
+   |                                                                      ^^^^
+41 |     """Создание обратного словаря для расшифровки"""
+42 |     decipher_dict = {}
+   |
+help: Replace with `dict`
+   |
+39 |
+   - def create_decipher_dictionary(cipher_dict: Dict[str, List[str]]) -> Dict[str, str]:
+40 + def create_decipher_dictionary(cipher_dict: Dict[str, List[str]]) -> dict[str, str]:
+41 |     """Создание обратного словаря для расшифровки"""
+   |
+
+UP015 [*] Unnecessary mode argument
+  --> task1\decoder.py:53:26
+   |
+51 | def load_encrypted_text(file_path: str) -> str:
+52 |     """Загрузка зашифрованного текста из файла"""
+53 |     with open(file_path, 'r', encoding='utf-8') as encrypted_file:
+   |                          ^^^
+54 |         return encrypted_file.read()
+   |
+help: Remove mode argument
+   |
+52 |     """Загрузка зашифрованного текста из файла"""
+   -     with open(file_path, 'r', encoding='utf-8') as encrypted_file:
+53 +     with open(file_path, encoding='utf-8') as encrypted_file:
+54 |         return encrypted_file.read()
+   |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> task1\decoder.py:57:57
+   |
+57 | def decrypt_text(encrypted_content: str, decipher_dict: Dict[str, str]) -> str:
+   |                                                         ^^^^
+58 |     """Расшифровка текста"""
+59 |     decrypted_chars = []
+   |
+help: Replace with `dict`
+   |
+56 |
+   - def decrypt_text(encrypted_content: str, decipher_dict: Dict[str, str]) -> str:
+57 + def decrypt_text(encrypted_content: str, decipher_dict: dict[str, str]) -> str:
+58 |     """Расшифровка текста"""
+   |
+
+UP015 [*] Unnecessary mode argument
+  --> task1\decoder.py:81:34
+   |
+79 |     """Сравнение расшифрованного текста с оригиналом"""
+80 |     try:
+81 |         with open(original_path, 'r', encoding='utf-8') as original_file:
+   |                                  ^^^
+82 |             original_text = original_file.read()
+   |
+help: Remove mode argument
+   |
+80 |     try:
+   -         with open(original_path, 'r', encoding='utf-8') as original_file:
+81 +         with open(original_path, encoding='utf-8') as original_file:
+82 |             original_text = original_file.read()
+   |
+
+E501 Line too long (278 > 88)
+ --> task2\deshifer.py:1:89
+  |
+1 | …коденном файле и сравнивал с повтряемостью, формируя первоначальный декодлирующий словарь. Но с задаччей справлялся он откровенно плохо, так что пришлось больше половины ключа исправлять ручками.
+  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2 | …
+3 | …
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> task2\deshifer.py:3:1
+  |
+1 |   #По идее сначала был код, который считал количевтво повторений каждого символа в закоденном файле и сравнивал с повтряемостью, формир…
+2 |
+3 | / import os
+4 | | import json
+5 | | from typing import Dict
+  | |_______________________^
+help: Organize imports
+  |
+2 |
+3 + import json
+4 | import os
+  - import json
+5 | from typing import Dict
+  |
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+ --> task2\deshifer.py:5:1
+  |
+3 | import os
+4 | import json
+5 | from typing import Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^
+
+UP015 [*] Unnecessary mode argument
+  --> task2\deshifer.py:13:26
+   |
+11 |     возвращает содержимое файла в виде строки
+12 |     """
+13 |     with open(file_path, 'r', encoding='utf-8') as file:
+   |                          ^^^
+14 |         encrypted_text = file.read()
+15 |     return encrypted_text
+   |
+help: Remove mode argument
+   |
+12 |     """
+   -     with open(file_path, 'r', encoding='utf-8') as file:
+13 +     with open(file_path, encoding='utf-8') as file:
+14 |         encrypted_text = file.read()
+   |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> task2\deshifer.py:18:39
+   |
+18 | def load_cipher_key(key_path: str) -> Dict[str, str]:
+   |                                       ^^^^
+19 |     """Функция для загрузки ключа шифрования из JSON файла
+20 |     на вход принимает путь к файлу с ключом
+   |
+help: Replace with `dict`
+   |
+17 |
+   - def load_cipher_key(key_path: str) -> Dict[str, str]:
+18 + def load_cipher_key(key_path: str) -> dict[str, str]:
+19 |     """Функция для загрузки ключа шифрования из JSON файла
+   |
+
+UP015 [*] Unnecessary mode argument
+  --> task2\deshifer.py:25:29
+   |
+23 |     """
+24 |     try:
+25 |         with open(key_path, 'r', encoding='utf-8') as f:
+   |                             ^^^
+26 |             cipher_to_russian = json.load(f)
+27 |         print("Ключ загружен из cipher_key.json")
+   |
+help: Remove mode argument
+   |
+24 |     try:
+   -         with open(key_path, 'r', encoding='utf-8') as f:
+25 +         with open(key_path, encoding='utf-8') as f:
+26 |             cipher_to_russian = json.load(f)
+   |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> task2\deshifer.py:34:51
+   |
+34 | def decrypt_text(encrypted_text: str, cipher_key: Dict[str, str]) -> str:
+   |                                                   ^^^^
+35 |     """Функция для расшифровки текста с использованием ключа
+36 |     на вход принимает зашифрованный текст и словарь соответствия символов
+   |
+help: Replace with `dict`
+   |
+33 |
+   - def decrypt_text(encrypted_text: str, cipher_key: Dict[str, str]) -> str:
+34 + def decrypt_text(encrypted_text: str, cipher_key: dict[str, str]) -> str:
+35 |     """Функция для расшифровки текста с использованием ключа
+   |
+
+UP015 [*] Unnecessary mode argument
+  --> task2\propabilities.py:9:26
+   |
+ 7 |     возвращает содержимое файла в виде строки
+ 8 |     """
+ 9 |     with open(file_path, 'r', encoding='utf-8') as file:
+   |                          ^^^
+10 |         text = file.read()
+11 |     return text
+   |
+help: Remove mode argument
+   |
+8  |     """
+   -     with open(file_path, 'r', encoding='utf-8') as file:
+9  +     with open(file_path, encoding='utf-8') as file:
+10 |         text = file.read()
+   |
+
+E501 Line too long (91 > 88)
+  --> task2\propabilities.py:40:89
+   |
+40 | def format_frequency_table(sorted_data: list, total_chars: int, unique_chars: int) -> list:
+   |                                                                                         ^^^
+41 |     """Функция для форматирования таблицы частотности
+42 |     на вход принимает отсортированные данные, общее количество символов и количество уникальных символов
+   |
+
+E501 Line too long (104 > 88)
+  --> task2\propabilities.py:42:89
+   |
+40 | def format_frequency_table(sorted_data: list, total_chars: int, unique_chars: int) -> list:
+41 |     """Функция для форматирования таблицы частотности
+42 |     на вход принимает отсортированные данные, общее количество символов и количество уникальных символов
+   |                                                                                         ^^^^^^^^^^^^^^^^
+43 |     возвращает список строк для записи в файл
+44 |     """
+   |
