@@ -18,6 +18,6 @@ line-ending = "auto"
 
 [tool.pyright]
 include = ["task1", "task2"]
-typeCheckingMode = "basic"
+typeCheckingMode = "standard"
 pythonVersion = "3.11"
 pythonPlatform = "Windows"
