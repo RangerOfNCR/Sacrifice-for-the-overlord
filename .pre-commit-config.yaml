@@ -7,28 +7,28 @@ repos:
     hooks:
       - id: ruff-check
         name: Ruff lint
-        entry: ruff check .
+        entry: make -C lab1 lint
         language: system
         pass_filenames: false
         stages: [pre-commit]
 
       - id: ruff-format
         name: Ruff format check
-        entry: ruff format --check .
+        entry: make -C lab1 format-check
         language: system
         pass_filenames: false
         stages: [pre-commit]
 
       - id: pyright
         name: Pyright
-        entry: pyright
+        entry: make -C lab1 typecheck
         language: system
         pass_filenames: false
         stages: [pre-commit]
 
       - id: full-check
         name: Full static check
-        entry: make check
+        entry: make -C lab1 check
         language: system
         pass_filenames: false
         stages: [pre-push]
