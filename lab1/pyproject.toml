@@ -15,3 +15,9 @@ select = [
 quote-style = "double"
 indent-style = "space"
 line-ending = "auto"
+
+[tool.pyright]
+include = ["task1", "task2"]
+typeCheckingMode = "basic"
+pythonVersion = "3.11"
+pythonPlatform = "Windows"
