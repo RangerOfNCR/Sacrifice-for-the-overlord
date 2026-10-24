@@ -6,7 +6,7 @@ def load_text_from_file(file_path: str) -> str:
     на вход принимает путь к файлу с зашифрованным текстом
     возвращает содержимое файла в виде строки
     """
-    with open(file_path, 'r', encoding='utf-8') as file:
+    with open(file_path, encoding='utf-8') as file:
         text = file.read()
     return text
 
@@ -37,10 +37,16 @@ def calculate_probabilities(char_count: dict, total_chars: int) -> list:
     return sorted_by_prob
 
 
-def format_frequency_table(sorted_data: list, total_chars: int, unique_chars: int) -> list:
-    """Функция для форматирования таблицы частотности
-    на вход принимает отсортированные данные, общее количество символов и количество уникальных символов
-    возвращает список строк для записи в файл
+def format_frequency_table(
+    sorted_data: list,
+    total_chars: int,
+    unique_chars: int,
+) -> list:
+    """Функция для форматирования таблицы частотности.
+
+    На вход принимает отсортированные данные, общее количество
+    символов и количество уникальных символов.
+    Возвращает список строк для записи в файл.
     """
     output = []
     output.append(f"Общее количество символов: {total_chars}")

@@ -1,18 +1,17 @@
-import random
 import os
-from typing import Dict, List
+import random
 
 
-def read_dictionary_file(dict_path: str) -> List[str]:
+def read_dictionary_file(dict_path: str) -> list[str]:
     """Функция для чтения строк словаря из файла
     на вход принимает путь к файлу словаря
     возвращает список строк файла
     """
-    with open(dict_path, 'r', encoding='utf-8') as dict_file:
+    with open(dict_path, encoding='utf-8') as dict_file:
         return dict_file.readlines()
 
 
-def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+def parse_cipher_dictionary(lines: list[str]) -> dict[str, list[str]]:
     """Функция для парсинга словаря шифрования из списка строк
     на вход принимает строки файла словаря
     возвращает словарь замен
@@ -34,7 +33,7 @@ def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
     return cipher_dict
 
 
-def load_cipher_dictionary(dict_path: str) -> Dict[str, List[str]]:
+def load_cipher_dictionary(dict_path: str) -> dict[str, list[str]]:
     """Функция для загрузки словаря для шифрования из файла"""
     lines = read_dictionary_file(dict_path)
     return parse_cipher_dictionary(lines)
@@ -48,7 +47,7 @@ def parse_original_char(left_part: str) -> str:
     return ' ' if left_part == '' else left_part
 
 
-def parse_replacements(right_part: str) -> List[str]:
+def parse_replacements(right_part: str) -> list[str]:
     """Функция для парсинга списка замен из правой части строки словаря
     на вход принимает правую часть строки словаря
     возвращает список символов для замены
@@ -56,7 +55,7 @@ def parse_replacements(right_part: str) -> List[str]:
     return [r for r in right_part.split() if r != '-']
 
 
-def encrypt_text(text: str, cipher_dict: Dict[str, List[str]]) -> str:
+def encrypt_text(text: str, cipher_dict: dict[str, list[str]]) -> str:
     """Функция для шифрования переданного текста
     на вход принимает исходный текст и словарь для шифрования
     возвращает зашифрованный текст
@@ -76,7 +75,7 @@ def load_text_from_file(input_path: str) -> str:
     """Функция для загрузки текста из файла
     на вход принимает путь к файлу с исходным текстом
     """
-    with open(input_path, 'r', encoding='utf-8') as input_file:
+    with open(input_path, encoding='utf-8') as input_file:
         content = input_file.read()
 
     return content
@@ -90,7 +89,7 @@ def save_encrypted_text(encrypted_text: str, output_path: str) -> None:
         output_file.write(encrypted_text)
 
 
-def encrypt_file(input_path: str, cipher_dict: Dict[str, List[str]],
+def encrypt_file(input_path: str, cipher_dict: dict[str, list[str]],
                  output_path: str = 'encrypted_text.txt') -> str:
     """Функция для шифрования текста из файла и сохранения результата
     на вход принимает путь к файлу с исходным текстом, словарь для шифрования

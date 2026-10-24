@@ -1,14 +1,13 @@
 import os
-from typing import Dict, List
 
 
-def read_dictionary_file(dict_path: str) -> List[str]:
+def read_dictionary_file(dict_path: str) -> list[str]:
     """Чтение строк словаря из файла"""
-    with open(dict_path, 'r', encoding='utf-8') as dict_file:
+    with open(dict_path, encoding='utf-8') as dict_file:
         return dict_file.readlines()
 
 
-def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
+def parse_cipher_dictionary(lines: list[str]) -> dict[str, list[str]]:
     """Парсинг словаря шифрования из списка строк"""
     cipher_dict = {}
 
@@ -31,13 +30,13 @@ def parse_cipher_dictionary(lines: List[str]) -> Dict[str, List[str]]:
     return cipher_dict
 
 
-def load_cipher_dictionary(dict_path: str) -> Dict[str, List[str]]:
+def load_cipher_dictionary(dict_path: str) -> dict[str, list[str]]:
     """Загрузка словаря шифрования из файла"""
     lines = read_dictionary_file(dict_path)
     return parse_cipher_dictionary(lines)
 
 
-def create_decipher_dictionary(cipher_dict: Dict[str, List[str]]) -> Dict[str, str]:
+def create_decipher_dictionary(cipher_dict: dict[str, list[str]]) -> dict[str, str]:
     """Создание обратного словаря для расшифровки"""
     decipher_dict = {}
 
@@ -50,11 +49,11 @@ def create_decipher_dictionary(cipher_dict: Dict[str, List[str]]) -> Dict[str, s
 
 def load_encrypted_text(file_path: str) -> str:
     """Загрузка зашифрованного текста из файла"""
-    with open(file_path, 'r', encoding='utf-8') as encrypted_file:
+    with open(file_path, encoding='utf-8') as encrypted_file:
         return encrypted_file.read()
 
 
-def decrypt_text(encrypted_content: str, decipher_dict: Dict[str, str]) -> str:
+def decrypt_text(encrypted_content: str, decipher_dict: dict[str, str]) -> str:
     """Расшифровка текста"""
     decrypted_chars = []
 
@@ -78,7 +77,7 @@ def save_decrypted_text(decrypted_text: str, output_path: str) -> None:
 def compare_with_original(original_path: str, decrypted_text: str):
     """Сравнение расшифрованного текста с оригиналом"""
     try:
-        with open(original_path, 'r', encoding='utf-8') as original_file:
+        with open(original_path, encoding='utf-8') as original_file:
             original_text = original_file.read()
 
         return original_text == decrypted_text

@@ -1,8 +1,10 @@
-#По идее сначала был код, который считал количевтво повторений каждого символа в закоденном файле и сравнивал с повтряемостью, формируя первоначальный декодлирующий словарь. Но с задаччей справлялся он откровенно плохо, так что пришлось больше половины ключа исправлять ручками.
+# Декодировал файл и сравнивал с повторяемостью,
+# формируя первоначальный декодирующий словарь.
+# Но с задачей справлялся он откровенно плохо,
+# так что пришлось больше половины ключа исправлять вручную.
 
-import os
 import json
-from typing import Dict
+import os
 
 
 def load_encrypted_text(file_path: str) -> str:
@@ -10,19 +12,19 @@ def load_encrypted_text(file_path: str) -> str:
     на вход принимает путь к файлу с зашифрованным текстом
     возвращает содержимое файла в виде строки
     """
-    with open(file_path, 'r', encoding='utf-8') as file:
+    with open(file_path, encoding='utf-8') as file:
         encrypted_text = file.read()
     return encrypted_text
 
 
-def load_cipher_key(key_path: str) -> Dict[str, str]:
+def load_cipher_key(key_path: str) -> dict[str, str]:
     """Функция для загрузки ключа шифрования из JSON файла
     на вход принимает путь к файлу с ключом
     возвращает словарь соответствия зашифрованных символов русским буквам
     в случае отсутствия файла программа завершается
     """
     try:
-        with open(key_path, 'r', encoding='utf-8') as f:
+        with open(key_path, encoding='utf-8') as f:
             cipher_to_russian = json.load(f)
         print("Ключ загружен из cipher_key.json")
         return cipher_to_russian
@@ -31,7 +33,7 @@ def load_cipher_key(key_path: str) -> Dict[str, str]:
         exit(1)
 
 
-def decrypt_text(encrypted_text: str, cipher_key: Dict[str, str]) -> str:
+def decrypt_text(encrypted_text: str, cipher_key: dict[str, str]) -> str:
     """Функция для расшифровки текста с использованием ключа
     на вход принимает зашифрованный текст и словарь соответствия символов
     возвращает расшифрованный текст
