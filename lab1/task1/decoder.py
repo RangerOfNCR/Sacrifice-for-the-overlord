@@ -3,7 +3,7 @@ import os
 
 def read_dictionary_file(dict_path: str) -> list[str]:
     """Чтение строк словаря из файла"""
-    with open(dict_path, encoding='utf-8') as dict_file:
+    with open(dict_path, encoding="utf-8") as dict_file:
         return dict_file.readlines()
 
 
@@ -14,15 +14,15 @@ def parse_cipher_dictionary(lines: list[str]) -> dict[str, list[str]]:
     for line in lines:
         line = line.strip()
 
-        if '-' not in line:
+        if "-" not in line:
             continue
 
-        left, right = line.split('-', 1)
+        left, right = line.split("-", 1)
 
         left = left.strip()
-        original = ' ' if left == '' else left
+        original = " " if left == "" else left
 
-        replacements = [r for r in right.strip().split() if r and r != '-']
+        replacements = [r for r in right.strip().split() if r and r != "-"]
 
         if replacements:
             cipher_dict[original] = replacements
@@ -49,7 +49,7 @@ def create_decipher_dictionary(cipher_dict: dict[str, list[str]]) -> dict[str, s
 
 def load_encrypted_text(file_path: str) -> str:
     """Загрузка зашифрованного текста из файла"""
-    with open(file_path, encoding='utf-8') as encrypted_file:
+    with open(file_path, encoding="utf-8") as encrypted_file:
         return encrypted_file.read()
 
 
@@ -63,12 +63,12 @@ def decrypt_text(encrypted_content: str, decipher_dict: dict[str, str]) -> str:
         else:
             decrypted_chars.append(char)
 
-    return ''.join(decrypted_chars)
+    return "".join(decrypted_chars)
 
 
 def save_decrypted_text(decrypted_text: str, output_path: str) -> None:
     """Сохранение расшифрованного текста в файл"""
-    with open(output_path, 'w', encoding='utf-8') as output_file:
+    with open(output_path, "w", encoding="utf-8") as output_file:
         output_file.write(decrypted_text)
 
     print(f"Расшифрованный текст сохранен в файл '{output_path}'")
@@ -77,7 +77,7 @@ def save_decrypted_text(decrypted_text: str, output_path: str) -> None:
 def compare_with_original(original_path: str, decrypted_text: str):
     """Сравнение расшифрованного текста с оригиналом"""
     try:
-        with open(original_path, encoding='utf-8') as original_file:
+        with open(original_path, encoding="utf-8") as original_file:
             original_text = original_file.read()
 
         return original_text == decrypted_text
@@ -88,20 +88,20 @@ def compare_with_original(original_path: str, decrypted_text: str):
 
 def main() -> None:
     """Основная функция для запуска процесса расшифровки"""
-    os.chdir('task1')
+    os.chdir("task1")
 
-    cipher_dict = load_cipher_dictionary('unicode_dictionary_edited.txt')
+    cipher_dict = load_cipher_dictionary("unicode_dictionary_edited.txt")
     decipher_dict = create_decipher_dictionary(cipher_dict)
 
-    encrypted_content = load_encrypted_text('encrypted_text.txt')
+    encrypted_content = load_encrypted_text("encrypted_text.txt")
     decrypted_text = decrypt_text(encrypted_content, decipher_dict)
 
     print("\nРасшифрованный текст:")
     print(decrypted_text)
 
-    save_decrypted_text(decrypted_text, 'decrypted_text.txt')
+    save_decrypted_text(decrypted_text, "decrypted_text.txt")
 
-    comparison_result = compare_with_original('text.txt', decrypted_text)
+    comparison_result = compare_with_original("text.txt", decrypted_text)
 
     if comparison_result is True:
         print("\nУСПЕХ: Расшифрованный текст полностью совпадает с оригиналом!")

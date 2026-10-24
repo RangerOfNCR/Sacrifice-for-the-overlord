@@ -7,7 +7,7 @@ def read_dictionary_file(dict_path: str) -> list[str]:
     на вход принимает путь к файлу словаря
     возвращает список строк файла
     """
-    with open(dict_path, encoding='utf-8') as dict_file:
+    with open(dict_path, encoding="utf-8") as dict_file:
         return dict_file.readlines()
 
 
@@ -19,10 +19,10 @@ def parse_cipher_dictionary(lines: list[str]) -> dict[str, list[str]]:
     cipher_dict = {}
 
     for line in lines:
-        if '-' not in line:
+        if "-" not in line:
             continue
 
-        left, right = line.split('-', 1)
+        left, right = line.split("-", 1)
 
         original = parse_original_char(left.strip())
         replacements = parse_replacements(right.strip())
@@ -44,7 +44,7 @@ def parse_original_char(left_part: str) -> str:
     на вход принимает левую часть строки словаря
     возвращает исходный символ (пробел, если левая часть пустая)
     """
-    return ' ' if left_part == '' else left_part
+    return " " if left_part == "" else left_part
 
 
 def parse_replacements(right_part: str) -> list[str]:
@@ -52,7 +52,7 @@ def parse_replacements(right_part: str) -> list[str]:
     на вход принимает правую часть строки словаря
     возвращает список символов для замены
     """
-    return [r for r in right_part.split() if r != '-']
+    return [r for r in right_part.split() if r != "-"]
 
 
 def encrypt_text(text: str, cipher_dict: dict[str, list[str]]) -> str:
@@ -68,14 +68,14 @@ def encrypt_text(text: str, cipher_dict: dict[str, list[str]]) -> str:
         else:
             encrypted_chars.append(char)
 
-    return ''.join(encrypted_chars)
+    return "".join(encrypted_chars)
 
 
 def load_text_from_file(input_path: str) -> str:
     """Функция для загрузки текста из файла
     на вход принимает путь к файлу с исходным текстом
     """
-    with open(input_path, encoding='utf-8') as input_file:
+    with open(input_path, encoding="utf-8") as input_file:
         content = input_file.read()
 
     return content
@@ -85,12 +85,15 @@ def save_encrypted_text(encrypted_text: str, output_path: str) -> None:
     """Функция для сохранения зашифрованного текста в файл
     на вход принимает зашифрованный текст и путь для сохранения
     """
-    with open(output_path, 'w', encoding='utf-8') as output_file:
+    with open(output_path, "w", encoding="utf-8") as output_file:
         output_file.write(encrypted_text)
 
 
-def encrypt_file(input_path: str, cipher_dict: dict[str, list[str]],
-                 output_path: str = 'encrypted_text.txt') -> str:
+def encrypt_file(
+    input_path: str,
+    cipher_dict: dict[str, list[str]],
+    output_path: str = "encrypted_text.txt",
+) -> str:
     """Функция для шифрования текста из файла и сохранения результата
     на вход принимает путь к файлу с исходным текстом, словарь для шифрования
     и путь для сохранения зашифрованного текста
@@ -105,13 +108,13 @@ def encrypt_file(input_path: str, cipher_dict: dict[str, list[str]],
 
 def main() -> None:
     """Основная функция для запуска процесса шифрования"""
-    os.chdir('task1')
+    os.chdir("task1")
 
     # Загрузка словаря для шифрования
-    cipher_dict = load_cipher_dictionary('unicode_dictionary_edited.txt')
+    cipher_dict = load_cipher_dictionary("unicode_dictionary_edited.txt")
 
     # Шифрование файла
-    encrypted_text = encrypt_file('text.txt', cipher_dict)
+    encrypted_text = encrypt_file("text.txt", cipher_dict)
 
     print("Зашифрованный текст:")
     print(encrypted_text)

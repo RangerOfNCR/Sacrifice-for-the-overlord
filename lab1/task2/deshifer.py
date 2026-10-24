@@ -12,7 +12,7 @@ def load_encrypted_text(file_path: str) -> str:
     на вход принимает путь к файлу с зашифрованным текстом
     возвращает содержимое файла в виде строки
     """
-    with open(file_path, encoding='utf-8') as file:
+    with open(file_path, encoding="utf-8") as file:
         encrypted_text = file.read()
     return encrypted_text
 
@@ -24,7 +24,7 @@ def load_cipher_key(key_path: str) -> dict[str, str]:
     в случае отсутствия файла программа завершается
     """
     try:
-        with open(key_path, encoding='utf-8') as f:
+        with open(key_path, encoding="utf-8") as f:
             cipher_to_russian = json.load(f)
         print("Ключ загружен из cipher_key.json")
         return cipher_to_russian
@@ -51,7 +51,7 @@ def save_decrypted_text(decrypted_text: str, output_path: str) -> None:
     """Функция для сохранения расшифрованного текста в файл
     на вход принимает расшифрованный текст и путь для сохранения
     """
-    with open(output_path, 'w', encoding='utf-8') as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(decrypted_text)
 
 
@@ -66,23 +66,23 @@ def main() -> None:
     """Основная функция для запуска процесса расшифровки
     использует предварительно созданный ключ шифрования
     """
-    os.chdir('task2')
-    
+    os.chdir("task2")
+
     # Загрузка зашифрованного текста
-    encrypted_text = load_encrypted_text('shifred_text.txt')
-    
+    encrypted_text = load_encrypted_text("shifred_text.txt")
+
     # Загрузка ключа шифрования
-    cipher_key = load_cipher_key('cipher_key.json')
-    
+    cipher_key = load_cipher_key("cipher_key.json")
+
     # Расшифровка текста
     decrypted_text = decrypt_text(encrypted_text, cipher_key)
-    
+
     # Вывод расшифрованного текста
     print(decrypted_text)
-    
+
     # Сохранение результата
-    save_decrypted_text(decrypted_text, 'decoded.txt')
-    
+    save_decrypted_text(decrypted_text, "decoded.txt")
+
     # Вывод итоговой информации
     print_results_summary()
 
